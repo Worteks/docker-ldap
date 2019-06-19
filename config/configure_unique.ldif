@@ -1,0 +1,9 @@
+dn: olcOverlay={4}unique,olcDatabase={2}hdb,cn=config
+objectClass: olcConfig
+objectClass: olcOverlayConfig
+objectClass: olcUniqueConfig
+objectClass: top
+olcOverlay: {4}unique
+olcUniqueURI: ldap://:OPENLDAP_PORT/?mail?sub
+olcUniqueURI: ldap://:OPENLDAP_PORT/?uid?sub
+olcUniqueURI: ldap://:OPENLDAP_PORT/?cn?sub

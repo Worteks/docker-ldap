@@ -1,0 +1,4 @@
+dn: cn={5}sweetgroup,cn=schema,cn=config
+changetype: modify
+replace: olcObjectClasses
+olcObjectClasses: ( 1.3.6.1.4.1.39430.1.1.2 NAME 'sweetGroup' DESC 'Sweet Group Schema' AUXILIARY MUST mail MAY mailAlternateAddress )

@@ -1,0 +1,7 @@
+dn: cn=whitepages,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: whitepages
+description: Service Account for LTB WhitePages
+sn: WhitePages service account
+userPassword: WHITEPAGES_SA_PASSWORD_HASH

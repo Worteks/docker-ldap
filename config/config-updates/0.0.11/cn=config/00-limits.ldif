@@ -1,0 +1,7 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcLimits
+olcLimits: {0}dn.subtree="ou=services,OPENLDAP_SUFFIX" size=unlimited time=unlimited
+-
+add: olcLimits
+olcLimits: {1}anonymous auth size.pr=500 size.prtotal=unlimited

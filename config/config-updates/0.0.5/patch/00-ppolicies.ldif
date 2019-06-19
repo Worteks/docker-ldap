@@ -1,0 +1,14 @@
+dn: cn=autoLockout,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+replace: pwdSafeModify
+pwdSafeModify: FALSE
+
+dn: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+replace: pwdSafeModify
+pwdSafeModify: FALSE
+
+dn: cn=permanentLock,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+replace: pwdSafeModify
+pwdSafeModify: FALSE

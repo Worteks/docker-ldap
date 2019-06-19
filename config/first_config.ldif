@@ -1,0 +1,47 @@
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: OPENLDAP_WSWEET_PASSWORD
+-
+add: olcAccess
+olcAccess: {1}to * by dn="cn=wsweet,cn=config" write
+-
+add: olcRootDN
+olcRootDN: cn=wsweet,cn=config
+
+dn: olcDatabase={1}monitor,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {1}to * by dn="cn=wsweet,cn=config" read
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: OPENLDAP_ROOT_PASSWORD
+-
+replace: olcRootDN
+olcRootDN: OPENLDAP_ROOT_DN,OPENLDAP_SUFFIX
+-
+replace: olcSuffix
+olcSuffix: OPENLDAP_SUFFIX
+-
+add: olcAccess
+olcAccess: {0}to attrs=userPassword by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=lemonldap,ou=services,OPENLDAP_SUFFIX" read by dn="cn=bluemind,ou=services,OPENLDAP_SUFFIX" read by self write by anonymous auth
+-
+add: olcAccess
+olcAccess: {1}to attrs=uid,cn,sn,givenName,o,ou,mail,member by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * read
+-
+add: olcAccess
+olcAccess: {2}to dn.subtree="ou=lemonldap,ou=config,OPENLDAP_SUFFIX" by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=lemonldap,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=ssoapp,ou=services,OPENLDAP_SUFFIX" read by dn="cn=nextcloud,ou=services,OPENLDAP_SUFFIX" read by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * none
+-
+add: olcAccess
+olcAccess: {3}to dn.subtree="ou=sessions,OPENLDAP_SUFFIX" by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=lemonsessions,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=lemonldap,ou=services,OPENLDAP_SUFFIX" write by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * none
+-
+add: olcAccess
+olcAccess: {4}to dn.subtree="ou=config,OPENLDAP_SUFFIX" by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * none
+-
+add: olcAccess
+olcAccess: {5}to dn.subtree="OPENLDAP_SUFFIX" by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" manage by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * read
+-
+add: olcAccess
+olcAccess: {6}to * by dn="cn=wsweet,ou=services,OPENLDAP_SUFFIX" read by dn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" read by * none

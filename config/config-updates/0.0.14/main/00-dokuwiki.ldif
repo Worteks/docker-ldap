@@ -1,0 +1,7 @@
+dn: cn=dokuwiki,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: dokuwiki
+description: Service Account for DokuWiki to authenticate SSO users
+sn: DokuWiki service account
+userPassword: DOKUWIKI_SA_PASSWORD_HASH

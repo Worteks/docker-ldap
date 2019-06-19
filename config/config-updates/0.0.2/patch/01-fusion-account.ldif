@@ -1,0 +1,4 @@
+dn: cn=fusiondirectory,ou=services,OPENLDAP_SUFFIX
+changetype: modify
+replace: userPassword
+userPassword: FUSION_SA_PASSWORD_HASH

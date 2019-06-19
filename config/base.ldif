@@ -1,0 +1,524 @@
+dn: OPENLDAP_SUFFIX
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: FIRST_PART
+o: FIRST_PART
+
+dn: ou=config,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: config
+
+dn: ou=groups,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: ou=policies,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: policies
+
+dn: ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: services
+
+dn: ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: sessions
+
+dn: ou=cas,ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: cas
+
+dn: ou=global,ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: global
+
+dn: ou=oidc,ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: oidc
+
+dn: ou=persistent,ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: persistent
+
+dn: ou=saml,ou=sessions,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: saml
+
+dn: ou=users,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=lemonldap,ou=config,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: lemonldap
+
+dn: ou=wsweet,ou=config,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: wsweet
+
+dn: cn=fusiondirectory,ou=services,OPENLDAP_SUFFIX
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+objectClass: top
+cn: fusiondirectory
+description: Service Account for fusiondirectory
+userPassword: FUSIONDIRECTORY_SA_PASSWORD_HASH
+
+dn: cn=bluemind,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: bluemind
+description: Service Account for BlueMind to synchronize its configuration from
+sn: BlueMind service account
+userPassword: BLUEMIND_SA_PASSWORD_HASH
+
+dn: cn=lemonldap,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: lemonldap
+description: Service Account for LemonLDAP-NG
+sn: LemonLDAP service account
+userPassword: LEMONLDAP_SA_PASSWORD_HASH
+
+dn: cn=lemonsessions,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: lemonsessions
+description: Service Account for LemonLDAP-NG Sessions Management
+sn: LemonLDAP sessions management service account
+userPassword: SESSIONS_SA_PASSWORD_HASH
+
+dn: cn=nextcloud,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: nextcloud
+description: Service Account for NextCloud to synchronize its configuration from
+sn: NextCloud service account
+userPassword: NEXTCLOUD_SA_PASSWORD_HASH
+
+dn: cn=rocket,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: rocket
+description: Service Account for RocketChat to synchronize its configuration from
+sn: RocketChat service account
+userPassword: ROCKET_SA_PASSWORD_HASH
+
+dn: cn=ssoapp,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: ssoapp
+description: Generic Service Account for LemonLDAP-NG SSO-based Applications
+sn: LemonLDAP SSO applications service account
+userPassword: SSO_CLIENT_SA_PASSWORD_HASH
+
+dn: cn=syncrepl,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalRole
+objectClass: simpleSecurityObject
+cn: syncrepl
+description: Service Account for LDAP Synchronization
+userPassword: SYNCREPL_SA_PASSWORD_HASH
+
+dn: cn=wsweet,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: wsweet
+description: Service Account for Wsweet to synchronize its configuration from
+sn: Wsweet service account
+userPassword: WSWEET_SA_PASSWORD_HASH
+
+dn: cn=autoLockout,ou=policies,OPENLDAP_SUFFIX
+objectClass: pwdPolicy
+objectClass: person
+objectClass: top
+cn: autoLockout
+sn: autoLockout
+pwdAttribute: userPassword
+pwdCheckQuality: 2
+pwdMinAge: 0
+pwdMaxAge: 0
+pwdMinLength: 8
+pwdInHistory: 5
+pwdMaxFailure: 3
+pwdFailureCountInterval: 30
+pwdLockout: TRUE
+pwdLockoutDuration: 3600
+pwdAllowUserChange: TRUE
+pwdExpireWarning: 0
+pwdGraceAuthNLimit: 0
+pwdMustChange: FALSE
+pwdSafeModify: TRUE
+
+dn: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
+objectClass: pwdPolicy
+objectClass: person
+objectClass: top
+cn: dontLockout
+sn: dontLockout
+pwdAttribute: userPassword
+pwdCheckQuality: 2
+pwdMinAge: 0
+pwdMaxAge: 0
+pwdMinLength: 8
+pwdInHistory: 5
+pwdMaxFailure: 3
+pwdFailureCountInterval: 30
+pwdLockout: FALSE
+pwdLockoutDuration: 0
+pwdAllowUserChange: TRUE
+pwdExpireWarning: 0
+pwdGraceAuthNLimit: 0
+pwdMustChange: FALSE
+pwdSafeModify: TRUE
+
+dn: cn=permanentLock,ou=policies,OPENLDAP_SUFFIX
+objectClass: pwdPolicy
+objectClass: person
+objectClass: top
+cn: permanentLock
+sn: permanentLock
+pwdAttribute: userPassword
+pwdCheckQuality: 2
+pwdMinAge: 0
+pwdMaxAge: 0
+pwdMinLength: 8
+pwdInHistory: 5
+pwdMaxFailure: 3
+pwdFailureCountInterval: 30
+pwdLockout: TRUE
+pwdLockoutDuration: 0
+pwdAllowUserChange: TRUE
+pwdExpireWarning: 0
+pwdGraceAuthNLimit: 0
+pwdMustChange: FALSE
+pwdSafeModify: TRUE
+
+dn: cn=wsweetResetPw,ou=policies,OPENLDAP_SUFFIX
+objectClass: pwdPolicy
+objectClass: person
+objectClass: top
+cn: wsweetResetPw
+sn: wsweetResetPw
+pwdAttribute: userPassword
+pwdCheckQuality: 0
+pwdMinAge: 0
+pwdMaxAge: 0
+pwdMinLength: 3
+pwdInHistory: 2
+pwdMaxFailure: 5
+pwdFailureCountInterval: 30
+pwdLockout: TRUE
+pwdLockoutDuration: 0
+pwdAllowUserChange: TRUE
+pwdExpireWarning: 0
+pwdGraceAuthNLimit: 0
+pwdMustChange: TRUE
+pwdSafeModify: FALSE
+
+dn: cn=lmConf-1,ou=lemonldap,ou=config,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: applicationProcess
+cn: lmConf-1
+description: {activeTimer}1
+description: {ADPwdExpireWarning}0
+description: {ADPwdMaxAge}0
+description: {apacheAuthnLevel}4
+description: {applicationList}{"0001-cat":{"0002-app":{"type":"application","options":{"name":"BlueMind","logo":"bluemind.jpg","display":"auto","uri":"LEMONLDAP_PROTO://mail.OPENLDAP_DOMAIN","description":"Messagerie"}},"0003-app":{"type":"application","options":{"description":"Fichiers","uri":"LEMONLDAP_PROTO://cloud.OPENLDAP_DOMAIN","display":"auto","name":"Nextcloud","logo":"nextcloud.png"}},"catname":"W'Sweet","type":"category","0004-app":{"type":"application","options":{"logo":"rocketchat.png","name":"Rocket.Chat","display":"auto","uri":"LEMONLDAP_PROTO://chat.OPENLDAP_DOMAIN","description":"Messagerie Instantanée"}},"0005-app":{"options":{"name":"Annuaire","display":"auto","uri":"LEMONLDAP_PROTO://annuaire.OPENLDAP_DOMAIN","description":"Pages Blanches","logo":"ltb.png"},"type":"application"},"0006-app":{"options":{"name":"MarkDown","display":"auto","uri":"LEMONLDAP_PROTO://codimd.OPENLDAP_DOMAIN","description":"CodiMD MarkDown Text Editor","logo":"codimd.png"},"type":"application"},"0007-app":{"options":{"name":"KanBan","display":"auto","uri":"LEMONLDAP_PROTO://wekan.OPENLDAP_DOMAIN","description":"Wekan Project Management","logo":"wekan.png"},"type":"application"},"0008-app":{"options":{"name":"Draw","display":"auto","uri":"LEMONLDAP_PROTO://draw.OPENLDAP_DOMAIN","description":"Flowcharts and diagrams","logo":"draw.png"},"type":"application"},"0009-app":{"options":{"name":"Wiki","display":"auto","uri":"LEMONLDAP_PROTO://dokuwiki.OPENLDAP_DOMAIN","description":"Collaborative Knowledge Base","logo":"dokuwiki.gif"},"type":"application"},"0010-app":{"options":{"name":"SelfServicePassword","display":"auto","uri":"LEMONLDAP_PROTO://password.OPENLDAP_DOMAIN","description":"LTB Self Service Password","logo":"ltb.png"},"type":"application"}},"0011-cat":{"catname":"Administration","0015-app":{"type":"application","options":{"uri":"LEMONLDAP_PROTO://manager.OPENLDAP_DOMAIN/sessions.html","description":"Explore WebSSO sessions","name":"Sessions explorer","logo":"database.png","display":"auto"}},"type":"category","0014-app":{"options":{"display":"auto","name":"Notifications explorer","logo":"database.png","description":"Explore WebSSO notifications","uri":"LEMONLDAP_PROTO://manager.OPENLDAP_DOMAIN/notifications.html"},"type":"application"},"0013-app":{"options":{"logo":"configure.png","name":"WebSSO Manager","display":"auto","uri":"LEMONLDAP_PROTO://manager.OPENLDAP_DOMAIN/manager.html","description":"Configure LemonLDAP::NG WebSSO"},"type":"application"},"0012-app":{"type":"application","options":{"uri":"LEMONLDAP_PROTO://fusiondirectory.OPENLDAP_DOMAIN","description":"Gestion Groupes, Utilisateurs...","logo":"fusiondirectory.jpg","name":"Fusion Directory","display":"auto"}}}}
+description: {authChoiceModules}{}
+description: {authChoiceParam}lmAuth
+description: {authentication}LDAP
+description: {AuthLDAPFilter}(&(uid=$user)(objectClass=sweetUser)(!(pwdAccountLockedTime=*)))
+description: {browserIdAuthnLevel}1
+description: {captcha_login_enabled}0
+description: {captcha_mail_enabled}0
+description: {captcha_register_enabled}1
+description: {captcha_size}6
+description: {captchaStorage}Apache::Session::File
+description: {captchaStorageOptions}{}
+description: {casAccessControlPolicy}none
+description: {casAttr}
+description: {casAttributes}{"uidNumber":"$uidNumber","mail":"$mail","uid":"$uid","mailQuota":"$mailQuota","nextCloudQuota":"$nextCloudQuota"}
+description: {CAS_authnLevel}1
+description: {CAS_pgtFile}/tmp/pgt.txt
+description: {CAS_proxiedServices}{}
+description: {casStorage}Apache::Session::LDAP
+description: {casStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=cas,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {cda}0
+description: {cfgAuthor}Wsweet
+description: {cfgAuthorIP}42.42.42.256
+description: {cfgDate}1518622043
+description: {cfgLog}Wsweet initial config
+description: {cfgNum}1
+description: {checkXSS}1
+description: {confirmFormMethod}post
+description: {cookieExpiration}+1h
+description: {cookieName}ssoORG_SHORT
+description: {dbiAuthnLevel}2
+description: {dbiExportedVars}{}
+description: {demoExportedVars}{"cn":"cn","mail":"mail","uid":"uid","mailQuota":"mailQuota","nextCloudQuota":"nextCloudQuota"}
+description: {domain}OPENLDAP_DOMAIN
+description: {exportedHeaders}{"wsweet.OPENLDAP_DOMAIN":{},"wsweet-blue.OPENLDAP_DOMAIN":{},"wsweet-green.OPENLDAP_DOMAIN":{},"pad.OPENLDAP_DOMAIN":{},"pad-blue.OPENLDAP_DOMAIN":{},"pad-green.OPENLDAP_DOMAIN":{},"calc.OPENLDAP_DOMAIN":{},"calc-blue.OPENLDAP_DOMAIN":{},"calc-green.OPENLDAP_DOMAIN":{},"fusiondirectory.OPENLDAP_DOMAIN":{},"annuaire.OPENLDAP_DOMAIN":{},"password.OPENLDAP_DOMAIN":{},"chat.OPENLDAP_DOMAIN":{},"mail.OPENLDAP_DOMAIN":{},"auth.OPENLDAP_DOMAIN":{},"manager.OPENLDAP_DOMAIN":{},"cloud.OPENLDAP_DOMAIN":{},"codimd.OPENLDAP_DOMAIN":{},"wekan.OPENLDAP_DOMAIN":{},"dokuwiki.OPENLDAP_DOMAIN":{"Auth-User":"$uid","Auth-Cn":"$cn","Auth-Mail":"$mail","Auth-Groups":"encode_base64($groups,'')"},"draw.OPENLDAP_DOMAIN":{},"wiki.OPENLDAP_DOMAIN":{}}
+description: {exportedVars}{"UA":"HTTP_USER_AGENT"}
+description: {facebookAuthnLevel}1
+description: {facebookExportedVars}{}
+description: {failedLoginNumber}5
+description: {globalStorage}Apache::Session::LDAP
+description: {globalStorageOptions}{"generateModule":"Lemonldap::NG::Common::Apache::Session::Generate::SHA256","Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=global,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {googleAuthnLevel}1
+description: {googleExportedVars}{}
+description: {grantSessionRules}{}
+description: {groups}{}
+description: {hiddenAttributes}_password
+description: {hideOldPassword}0
+description: {httpOnly}1
+description: {https}LEMONLDAP_HTTPS
+description: {infoFormMethod}get
+description: {issuerDBCASActivation}1
+description: {issuerDBCASPath}^/cas/
+description: {issuerDBCASRule}1
+description: {issuerDBGetActivation}0
+description: {issuerDBGetParameters}{}
+description: {issuerDBGetPath}^/get/
+description: {issuerDBGetRule}1
+description: {issuerDBOpenIDActivation}0
+description: {issuerDBOpenIDConnectActivation}0
+description: {issuerDBOpenIDConnectPath}^/oauth2/
+description: {issuerDBOpenIDConnectRule}1
+description: {issuerDBOpenIDPath}^/openidserver/
+description: {issuerDBOpenIDRule}1
+description: {issuerDBSAMLActivation}1
+description: {issuerDBSAMLPath}^/saml/
+description: {issuerDBSAMLRule}1
+description: {jsRedirect}0
+description: {key}]xuob3iebieX4ier43
+description: {krbAuthnLevel}3
+description: {krbByJs}1
+description: {krbRemoveDomain}1
+description: {krbUseModKrb}0
+description: {ldapAllowResetExpiredPassword}0
+description: {ldapAuthnLevel}2
+description: {ldapBase}ou=users,OPENLDAP_SUFFIX
+description: {ldapChangePasswordAsUser}1
+description: {ldapExportedVars}{"userPassword":"userPassword","cloudQuota":"cloudQuota","mail":"mail","uidNumber":"uidNumber","uid":"uid","mailQuota":"mailQuota"}
+description: {ldapGroupAttributeNameGroup}dn
+description: {ldapGroupAttributeName}member
+description: {ldapGroupAttributeNameSearch}cn
+description: {ldapGroupAttributeNameUser}dn
+description: {ldapGroupBase}ou=groups,OPENLDAP_SUFFIX
+description: {ldapGroupObjectClass}groupOfNames
+description: {ldapGroupRecursive}0
+description: {ldapPasswordResetAttribute}pwdReset
+description: {ldapPasswordResetAttributeValue}TRUE
+description: {ldapPort}389
+description: {ldapPpolicyControl}0
+description: {ldapPwdEnc}utf-8
+description: {ldapSearchDeref}find
+description: {ldapServer}OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT
+description: {ldapSetPassword}0
+description: {ldapTimeout}120
+description: {ldapUsePasswordResetAttribute}1
+description: {ldapVersion}3
+description: {linkedInAuthnLevel}1
+description: {linkedInFields}id,first-name,last-name,email-address
+description: {linkedInScope}r_basicprofile r_emailaddress
+description: {linkedInUserField}emailAddress
+description: {localSessionStorage}Cache::FileCache
+description: {localSessionStorageOptions}{"directory_umask":"007","cache_root":"/tmp","namespace":"lemonldap-ng-sessions","cache_depth":3,"default_expires_in":600}
+description: {locationRules}{"wsweet.OPENLDAP_DOMAIN":{"^/public":"skip","^/ping":"skip","default":"accept"},"wsweet-blue.OPENLDAP_DOMAIN":{"^/public":"skip","^/ping":"skip","default":"accept"},"wsweet-green.OPENLDAP_DOMAIN":{"^/public":"skip","^/ping":"skip","default":"accept"},"pad.OPENLDAP_DOMAIN":{"default":"accept"},"pad-green.OPENLDAP_DOMAIN":{"default":"accept"},"pad-blue.OPENLDAP_DOMAIN":{"default":"accept"},"calc.OPENLDAP_DOMAIN":{"default":"accept"},"calc-green.OPENLDAP_DOMAIN":{"default":"accept"},"calc-blue.OPENLDAP_DOMAIN":{"default":"accept"},"fusiondirectory.OPENLDAP_DOMAIN":{"default":"$hGroups->{'Admins'}"},"chat.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"cloud.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"codimd.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"wekan.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"annuaire.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"password.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"mail.OPENLDAP_DOMAIN":{"default":"$hGroups->{'All'}"},"manager.OPENLDAP_DOMAIN":{"default":"$hGroups->{'Admins'}"},"dokuwiki.OPENLDAP_DOMAIN":{"default":"accept"},"draw.OPENLDAP_DOMAIN":{"default":"accept"},"wiki.OPENLDAP_DOMAIN":{"default":"accept"}}
+description: {loginHistoryEnabled}1
+description: {logoutServices}{}
+description: {lwpSslOpts}{}
+description: {macros}{"_whatToTrace":"$_auth eq 'SAML' ? \"$_user\\@$_idpConfKey\" : \"$_user\""}
+description: {mailCharset}utf-8
+description: {mailConfirmSubject}[Wsweet] Password reset confirmation
+description: {mailFrom}noreply@OPENLDAP_DOMAIN
+description: {mailLDAPFilter}(&(mail=$mail)(objectClass=inetorgperson))
+description: {mailOnPasswordChange}0
+description: {mailSessionKey}mail
+description: {mailSubject}[Wsweet] Your new password
+description: {mailTimeout}0
+description: {mailUrl}http://auth.OPENLDAP_DOMAIN/mail.pl
+description: {maintenance}0
+description: {managerDn}cn=lemonldap,ou=services,OPENLDAP_SUFFIX
+description: {managerPassword}LEMONLDAP_PASSWORD
+description: {multiValuesSeparator};
+description: {nginxCustomHandlers}{}
+description: {noAjaxHook}0
+description: {notification}1
+description: {notificationStorage}File
+description: {notificationStorageOptions}{"dirName":"/var/lib/lemonldap-ng/notifications"}
+description: {notificationWildcard}allusers
+description: {notifyDeleted}1
+description: {notifyOther}0
+description: {nullAuthnLevel}2
+description: {oidcAuthnLevel}1
+description: {oidcOPMetaDataExportedVars}
+description: {oidcOPMetaDataJSON}
+description: {oidcOPMetaDataJWKS}
+description: {oidcOPMetaDataOptions}
+description: {oidcRPCallbackGetParam}openidconnectcallback
+description: {oidcRPMetaDataExportedVars}
+description: {oidcRPMetaDataOptions}
+description: {oidcRPMetaDataOptionsExtraClaims}
+description: {oidcRPStateTimeout}600
+description: {oidcServiceAllowAuthorizationCodeFlow}1
+description: {oidcServiceAllowDynamicRegistration}0
+description: {oidcServiceAllowHybridFlow}0
+description: {oidcServiceAllowImplicitFlow}0
+description: {oidcServiceMetaDataAuthnContext}{}
+description: {oidcServiceMetaDataAuthorizeURI}authorize
+description: {oidcServiceMetaDataCheckSessionURI}checksession
+description: {oidcServiceMetaDataEndSessionURI}logout
+description: {oidcServiceMetaDataIssuer}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN
+description: {oidcServiceMetaDataJWKSURI}jwks
+description: {oidcServiceMetaDataRegistrationURI}register
+description: {oidcServiceMetaDataTokenURI}token
+description: {oidcServiceMetaDataUserInfoURI}userinfo
+description: {oidcStorage}Apache::Session::LDAP
+description: {oidcStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=oidc,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {openIdAuthnLevel}1
+description: {openIdExportedVars}{}
+description: {openIdIDPList}0;
+description: {openIdSPList}0;
+description: {openIdSreg_email}mail
+description: {openIdSreg_fullname}cn
+description: {openIdSreg_nickname}uid
+description: {openIdSreg_timezone}_timezone
+description: {passwordDB}LDAP
+description: {persistentStorage}Apache::Session::LDAP
+description: {persistentStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=persistent,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {port}LEMONLDAP_PORT
+description: {portalAntiFrame}1
+description: {portalCheckLogins}1
+description: {portalDisplayAppslist}1
+description: {portalDisplayChangePassword}1
+description: {portalDisplayLoginHistory}1
+description: {portalDisplayLogout}1
+description: {portalDisplayRegister}0
+description: {portalDisplayResetPassword}0
+description: {portalErrorOnExpiredSession}1
+description: {portalErrorOnMailNotFound}0
+description: {portalForceAuthn}0
+description: {portalForceAuthnInterval}5
+description: {portal}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/
+description: {portalOpenLinkInNewWindow}1
+description: {portalPingInterval}60000
+description: {portalRequireOldPassword}1
+description: {portalSkinBackground}
+description: {portalSkin}wsweet
+description: {portalSkinRules}{}
+description: {portalUserAttr}_user
+description: {post}{"wsweet.OPENLDAP_DOMAIN":{},"wsweet-blue.OPENLDAP_DOMAIN":{},"wsweet-green.OPENLDAP_DOMAIN":{},"calc.OPENLDAP_DOMAIN":{},"calc-green.OPENLDAP_DOMAIN":{},"calc-blue.OPENLDAP_DOMAIN":{},"pad.OPENLDAP_DOMAIN":{},"pad-green.OPENLDAP_DOMAIN":{},"pad-blue.OPENLDAP_DOMAIN":{},"annuaire.OPENLDAP_DOMAIN":{},"fusiondirectory.OPENLDAP_DOMAIN":{},"chat.OPENLDAP_DOMAIN":{},"password.OPENLDAP_DOMAIN":{},"mail.OPENLDAP_DOMAIN":{},"auth.OPENLDAP_DOMAIN":{},"cloud.OPENLDAP_DOMAIN":{},"codimd.OPENLDAP_DOMAIN":{},"wekan.OPENLDAP_DOMAIN":{},"manager.OPENLDAP_DOMAIN":{},"dokuwiki.OPENLDAP_DOMAIN":{},"draw.OPENLDAP_DOMAIN":{},"wiki.OPENLDAP_DOMAIN":{}}
+description: {radiusAuthnLevel}3
+description: {randomPasswordRegexp}[A-Z]{3}[a-z]{5}.\d{2}
+description: {redirectFormMethod}get
+description: {registerConfirmSubject}[Wsweet] Account register confirmation
+description: {registerDB}LDAP
+description: {registerDoneSubject}[Wsweet] Your new account
+description: {registerTimeout}0
+description: {registerUrl}http://auth.OPENLDAP_DOMAIN/register.pl
+description: {reloadUrls}{"reload.OPENLDAP_DOMAIN":"http://reload.OPENLDAP_DOMAIN:HTTP_PORT/reload"}
+description: {remoteGlobalStorage}Lemonldap::NG::Common::Apache::Session::SOAP
+description: {remoteGlobalStorageOptions}{}
+description: {samlAttributeAuthorityDescriptorAttributeServiceSOAP}urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/AA/SOAP;
+description: {samlAuthnContextMapKerberos}4
+description: {samlAuthnContextMapPassword}2
+description: {samlAuthnContextMapPasswordProtectedTransport}3
+description: {samlAuthnContextMapTLSClient}5
+description: {samlCommonDomainCookieActivation}0
+description: {samlEntityID}#PORTAL#/saml/metadata
+description: {samlIDPMetaDataExportedAttributes}
+description: {samlIDPMetaDataOptions}
+description: {samlIDPMetaDataXML}{}
+description: {samlIdPResolveCookie}lemonldapidp
+description: {samlIDPSSODescriptorArtifactResolutionServiceArtifact}1;0;urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/artifact
+description: {samlIDPSSODescriptorSingleLogoutServiceHTTPPost}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST;#PORTAL#/saml/singleLogout;#PORTAL#/saml/singleLogoutReturn
+description: {samlIDPSSODescriptorSingleLogoutServiceHTTPRedirect}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect;#PORTAL#/saml/singleLogout;#PORTAL#/saml/singleLogoutReturn
+description: {samlIDPSSODescriptorSingleLogoutServiceSOAP}urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/singleLogoutSOAP;
+description: {samlIDPSSODescriptorSingleSignOnServiceHTTPArtifact}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact;#PORTAL#/saml/singleSignOnArtifact;
+description: {samlIDPSSODescriptorSingleSignOnServiceHTTPPost}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST;#PORTAL#/saml/singleSignOn;
+description: {samlIDPSSODescriptorSingleSignOnServiceHTTPRedirect}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect;#PORTAL#/saml/singleSignOn;
+description: {samlIDPSSODescriptorSingleSignOnServiceSOAP}urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/singleSignOnSOAP;
+description: {samlIDPSSODescriptorWantAuthnRequestsSigned}1
+description: {samlMetadataForceUTF8}1
+description: {samlNameIDFormatMapEmail}mail
+description: {samlNameIDFormatMapKerberos}uid
+description: {samlNameIDFormatMapWindows}uid
+description: {samlNameIDFormatMapX509}mail
+description: {samlOrganizationDisplayName}ORG_SHORT
+description: {samlOrganizationName}ORG_SHORT
+description: {samlOrganizationURL}LEMONLDAP_PROTO://www.OPENLDAP_DOMAIN
+description: {samlRelayStateTimeout}600
+description:: SAML_ENC_PUB_KEY
+description:: SAML_ENC_PRIV_KEY
+description:: SAML_SIG_PUB_KEY
+description:: SAML_SIG_PRIV_KEY
+description: {samlServiceUseCertificateInResponse}1
+description: {samlSPMetaDataExportedAttributes}{"nextcloud":{"uid":"1;uid","mail":"1;mail","cloudQuota":"1;cloudQuota;;"},"codimd":{"uid":"1;uid","mail":"1;mail"},"wekan":{"uid":"1;uid","mail":"1;mail"},"wordpress":{"uid":"1;uid;;","mail":"1;mail;;"},"rocket":{"uid":"1;cn","mail":"1;mail"}}
+description: {samlSPMetaDataOptions}{"wordpress":{},"jenkins":{},"nextcloud":{"samlSPMetaDataOptionsSignSLOMessage":-1,"samlSPMetaDataOptionsEnableIDPInitiatedURL":0,"samlSPMetaDataOptionsNameIDFormat":"","samlSPMetaDataOptionsEncryptionMode":"none","samlSPMetaDataOptionsSessionNotOnOrAfterTimeout":72000,"samlSPMetaDataOptionsSignSSOMessage":-1,"samlSPMetaDataOptionsCheckSSOMessageSignature":0,"samlSPMetaDataOptionsForceUTF8":1,"samlSPMetaDataOptionsCheckSLOMessageSignature":0,"samlSPMetaDataOptionsOneTimeUse":0,"samlSPMetaDataOptionsNotOnOrAfterTimeout":72000},"codimd":{"samlSPMetaDataOptionsSignSLOMessage":-1,"samlSPMetaDataOptionsEnableIDPInitiatedURL":0,"samlSPMetaDataOptionsNameIDFormat":"","samlSPMetaDataOptionsEncryptionMode":"none","samlSPMetaDataOptionsSessionNotOnOrAfterTimeout":72000,"samlSPMetaDataOptionsSignSSOMessage":-1,"samlSPMetaDataOptionsCheckSSOMessageSignature":0,"samlSPMetaDataOptionsForceUTF8":1,"samlSPMetaDataOptionsCheckSLOMessageSignature":0,"samlSPMetaDataOptionsOneTimeUse":0,"samlSPMetaDataOptionsNotOnOrAfterTimeout":72000},"wekan":{"samlSPMetaDataOptionsSignSLOMessage":-1,"samlSPMetaDataOptionsEnableIDPInitiatedURL":0,"samlSPMetaDataOptionsNameIDFormat":"","samlSPMetaDataOptionsEncryptionMode":"none","samlSPMetaDataOptionsSessionNotOnOrAfterTimeout":72000,"samlSPMetaDataOptionsSignSSOMessage":-1,"samlSPMetaDataOptionsCheckSSOMessageSignature":0,"samlSPMetaDataOptionsForceUTF8":1,"samlSPMetaDataOptionsCheckSLOMessageSignature":0,"samlSPMetaDataOptionsOneTimeUse":0,"samlSPMetaDataOptionsNotOnOrAfterTimeout":72000},"rocket":{}}
+description: {samlSPMetaDataXML}{"nextcloud":{"samlSPMetaDataXML":"<?xml version=\"1.0\"?>\n<EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\" validUntil=\"2018-07-10T10:28:25Z\" cacheDuration=\"PT604800S\" entityID=\"LEMONLDAP_PROTO://cloud.OPENLDAP_DOMAIN/apps/user_saml/saml/metadata\">\n  <SPSSODescriptor AuthnRequestsSigned=\"false\" WantAssertionsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n    <SingleLogoutService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"LEMONLDAP_PROTO://cloud.OPENLDAP_DOMAIN/apps/user_saml/saml/sls\" />\n    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>\n    <AssertionConsumerService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"LEMONLDAP_PROTO://cloud.OPENLDAP_DOMAIN/apps/user_saml/saml/acs\" index=\"1\" />\n  </SPSSODescriptor>\n</EntityDescriptor>"},"rocket":{"samlSPMetaDataXML":"<?xml version=\"1.0\"?>\n<EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" entityID=\"LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/saml/metadata\">\n  <SPSSODescriptor protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n  <SingleLogoutService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"LEMONLDAP_PROTO://chat.OPENLDAP_DOMAIN/_saml/logout/rocket/\" ResponseLocation=\"LEMONLDAP_PROTO://chat.OPENLDAP_DOMAIN/_saml/logout/rocket/\"/>\n    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>\n    <AssertionConsumerService index=\"1\" isDefault=\"true\" Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"LEMONLDAP_PROTO://chat.OPENLDAP_DOMAIN/_saml/validate/rocket\"/>\n  </SPSSODescriptor>\n</EntityDescriptor>"},"codimd":{"samlSPMetaDataXML":"<?xml version=\"1.0\"?>\n<EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\" xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\" entityID=\"LEMONLDAP_PROTO://codimd.OPENLDAP_DOMAIN\" ID=\"LEMONLDAP_PROTO___codimd_ORG_SHORT\">\n  <SPSSODescriptor protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>\n    <AssertionConsumerService index=\"1\" isDefault=\"true\" Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"LEMONLDAP_PROTO://codimd.OPENLDAP_DOMAIN/auth/saml/callback\"/>\n  </SPSSODescriptor>\n</EntityDescriptor>"},"wekan":{"samlSPMetaDataXML":"<?xml version=\"1.0\"?>\n<EntityDescriptor xmlns=\"urn:oasis:names:tc:SAML:2.0:metadata\" validUntil=\"2018-07-10T10:28:25Z\" cacheDuration=\"PT604800S\" entityID=\"LEMONLDAP_PROTO://wekan.OPENLDAP_DOMAIN/FIXMEFIXME/saml/metadata\">\n  <SPSSODescriptor AuthnRequestsSigned=\"false\" WantAssertionsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n    <SingleLogoutService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"LEMONLDAP_PROTO://wekan.OPENLDAP_DOMAIN/FIXMEFIXME/saml/sls\" />\n    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>\n    <AssertionConsumerService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"LEMONLDAP_PROTO://wekan.OPENLDAP_DOMAIN/FIXMEFIXME/saml/acs\" index=\"1\" />\n  </SPSSODescriptor>\n</EntityDescriptor>"},"wordpress":{"samlSPMetaDataXML":"<?xml version=\"1.0\"?>\n<md:EntityDescriptor xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"\n                     validUntil=\"2017-10-10T19:27:37Z\"\n    cacheDuration=\"PT604800S\"\n                     entityID=\"php-saml\">\n    <md:SPSSODescriptor AuthnRequestsSigned=\"false\" WantAssertionsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\">\n        <md:SingleLogoutService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\"\n                                Location=\"LEMONLDAP_PROTO://www.OPENLDAP_DOMAIN/wp-login.php?saml_sls\" />\n        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>\n     <md:AssertionConsumerService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\"\n                                     Location=\"LEMONLDAP_PROTO://www.OPENLDAP_DOMAIN/wp-login.php?saml_acs\"\n                                     index=\"1\" />\n    </md:SPSSODescriptor>\n</md:EntityDescriptor>"}}
+description: {samlSPSSODescriptorArtifactResolutionServiceArtifact}1;0;urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/artifact
+description: {samlSPSSODescriptorAssertionConsumerServiceHTTPArtifact}1;0;urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact;#PORTAL#/saml/proxySingleSignOnArtifact
+description: {samlSPSSODescriptorAssertionConsumerServiceHTTPPost}0;1;urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST;#PORTAL#/saml/proxySingleSignOnPost
+description: {samlSPSSODescriptorAuthnRequestsSigned}1
+description: {samlSPSSODescriptorSingleLogoutServiceHTTPPost}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST;#PORTAL#/saml/proxySingleLogout;#PORTAL#/saml/proxySingleLogoutReturn
+description: {samlSPSSODescriptorSingleLogoutServiceHTTPRedirect}urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect;#PORTAL#/saml/proxySingleLogout;#PORTAL#/saml/proxySingleLogoutReturn
+description: {samlSPSSODescriptorSingleLogoutServiceSOAP}urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/proxySingleLogoutSOAP;
+description: {samlSPSSODescriptorWantAssertionsSigned}1
+description: {samlStorage}Apache::Session::LDAP
+description: {samlStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=saml,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {samlUseQueryStringSpecific}0
+description: {securedCookie}0
+description: {sessionDataToRemember}{}
+description: {singleIP}0
+description: {singleSession}0
+description: {singleSessionUserByIP}0
+description: {singleUserByIP}0
+description: {slaveAuthnLevel}2
+description: {slaveExportedVars}{}
+description: {SMTPServer}OPENLDAP_SMTP
+description: {Soap}0
+description: {SSLAuthnLevel}5
+description: {storePassword}0
+description: {successLoginNumber}5
+description: {syslog}
+description: {timeout}72000
+description: {timeoutActivity}0
+description: {timeoutActivityInterval}60
+description: {trustedDomains}*
+description: {trustedProxies}
+description: {twitterAuthnLevel}1
+description: {userControl}^[\w\.\-@]+$
+description: {userDB}LDAP
+description: {useRedirectOnError}1
+description: {useRedirectOnForbidden}1
+description: {useSafeJail}0
+description: {vhostOptions}{"wsweet.OPENLDAP_DOMAIN":{},"wsweet-blue.OPENLDAP_DOMAIN":{},"wsweet-green.OPENLDAP_DOMAIN":{},"calc.OPENLDAP_DOMAIN":{},"calc-blue.OPENLDAP_DOMAIN":{},"calc-green.OPENLDAP_DOMAIN":{},"pad.OPENLDAP_DOMAIN":{},"pad-blue.OPENLDAP_DOMAIN":{},"pad-green.OPENLDAP_DOMAIN":{},"manager.OPENLDAP_DOMAIN":{},"annuaire.OPENLDAP_DOMAIN":{VHOST_HTTPS_ON},"password.OPENLDAP_DOMAIN":{VHOST_HTTPS_MAINT},"fusiondirectory.OPENLDAP_DOMAIN":{},"chat.OPENLDAP_DOMAIN":{},"cloud.OPENLDAP_DOMAIN":{},"codimd.OPENLDAP_DOMAIN":{},"wekan.OPENLDAP_DOMAIN":{},"mail.OPENLDAP_DOMAIN":{VHOST_EXTERNAL_HTTPS_MAINT},"auth.OPENLDAP_DOMAIN":{},"dokuwiki.OPENLDAP_DOMAIN":{},"draw.OPENLDAP_DOMAIN":{},"wiki.OPENLDAP_DOMAIN":{}}
+description: {webIDAuthnLevel}1
+description: {webIDExportedVars}{}
+description: {whatToTrace}_whatToTrace
+description: {yubikeyAuthnLevel}3
+description: {yubikeyPublicIDSize}12
+description: {zimbraBy}
+
+dn: cn=core-1,ou=wsweet,ou=config,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: applicationProcess
+cn: core-1
+description: {domainsList}OPENLDAP_DOMAIN
+description: {quotas}{"maxUsers":100,"maxGroups":50,"maxPolicies":5,"maxDomains":5,"diskQuotaMail":53687091200, "diskQuotaFileShare":53687091200}

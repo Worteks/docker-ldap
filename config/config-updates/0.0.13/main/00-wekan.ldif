@@ -1,0 +1,7 @@
+dn: cn=wekan,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: wekan
+description: Service Account for Wekan to authenticate SSO users
+sn: Wekan service account
+userPassword: WEKAN_SA_PASSWORD_HASH

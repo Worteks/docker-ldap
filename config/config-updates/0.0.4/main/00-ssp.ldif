@@ -1,0 +1,7 @@
+dn: cn=ssp,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: ssp
+description: Service Account for SelfServicePassword to authenticate SSO users
+sn: SelfServicePassword service account
+userPassword: SSP_SA_PASSWORD_HASH

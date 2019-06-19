@@ -1,0 +1,7 @@
+dn: cn=codimd,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: codimd
+description: Service Account for CodiMD to authenticate SSO users
+sn: CodiMD service account
+userPassword: CODIMD_SA_PASSWORD_HASH

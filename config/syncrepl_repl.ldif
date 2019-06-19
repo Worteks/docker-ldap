@@ -1,0 +1,4 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+add: olcSyncRepl
+olcSyncRepl: rid=NID provider="LDAP_PROTO://BASENAME-RID.CLUSTER_DOMAIN:LDAP_PORT" bindmethod=simple binddn="cn=syncrepl,ou=services,OPENLDAP_SUFFIX" credentials=OPENLDAP_SYNCREPL_PASSWORD searchbase="OPENLDAP_SUFFIX" scope=sub schemachecking=on type=refreshAndPersist timeout=0 network-timeout=0 retry="5 5 300 +"

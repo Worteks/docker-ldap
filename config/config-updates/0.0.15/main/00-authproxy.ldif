@@ -1,0 +1,7 @@
+dn: cn=authproxy,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: authproxy
+description: Service Account for AuthProxy to authenticate SSO users
+sn: AuthProxy service account
+userPassword: AUTHPROXY_SA_PASSWORD_HASH

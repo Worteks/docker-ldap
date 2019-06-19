@@ -1,0 +1,14 @@
+dn: cn=template-fd,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: template-fd
+olcAttributeTypes: ( 1.3.6.1.4.1.38414.38.1.1
+    NAME 'fdTemplateField'
+    DESC 'FusionDirectory - template field'
+    EQUALITY octetStringMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+olcObjectClasses: ( 1.3.6.1.4.1.38414.38.2.1
+    NAME 'fdTemplate'
+    DESC 'FusionDirectory - template object'
+    STRUCTURAL
+    MUST cn
+    MAY fdTemplateField )

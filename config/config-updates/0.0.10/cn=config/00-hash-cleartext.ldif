@@ -1,0 +1,14 @@
+dn: olcOverlay={2}ppolicy,olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcPPolicyHashCleartext
+olcPPolicyHashCleartext: TRUE
+
+dn: cn=module{0},cn=config
+changetype: modify
+add: olcModuleLoad
+olcModuleLoad: pw-sha2.la
+
+dn: olcDatabase={-1}frontend,cn=config
+changetype: modify
+add: olcPasswordHash
+olcPasswordHash: {SSHA256}

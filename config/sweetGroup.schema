@@ -1,0 +1,8 @@
+# sweetGroup.schema -- Wsweet attributes
+## Auxiliary ObjectClass used by Wsweet
+
+objectClass ( 1.3.6.1.4.1.39430.1.1.2
+	NAME 'sweetGroup'
+        DESC 'Sweet Group Schema'
+        AUXILIARY
+        MUST mail )

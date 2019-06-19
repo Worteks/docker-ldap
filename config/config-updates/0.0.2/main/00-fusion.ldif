@@ -1,0 +1,127 @@
+dn: ou=aclroles,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: aclroles
+
+dn: cn=fusion-admin,ou=aclroles,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: gosaRole
+cn: fusion-admin
+description: Give all rights on all objects
+gosaAclTemplate: 0:all;cmdrw
+
+dn: cn=manager,ou=aclroles,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: gosaRole
+cn: manager
+description: Give all rights on users in the given branch
+gosaAclTemplate: 0:user/user;cmdrw,user/posixAccount;cmdrw
+
+dn: cn=editowninfos,ou=aclroles,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: gosaRole
+cn: editowninfos
+description: Allow users to edit their own information (main tab and posix use only on base)
+gosaAclTemplate: 0:user/user;srw,user/posixAccount;srw
+
+dn: cn=editownpwd,ou=aclroles,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: gosaRole
+cn: editownpwd
+description: Allow users to edit their own password (use only on base)
+gosaAclTemplate: 0:user/user;s#userPassword;rw
+
+dn: ou=configs,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: configs
+
+dn: ou=fusiondirectory,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: fusiondirectory
+
+dn: ou=locks,ou=fusiondirectory,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: locks
+
+dn: ou=recovery,ou=fusiondirectory,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: recovery
+
+dn: cn=config,ou=fusiondirectory,OPENLDAP_SUFFIX
+objectClass: fusionDirectoryConf
+objectClass: fdMailPluginConf
+objectClass: fdDashboardPluginConf
+objectClass: fusionDirectoryPluginsConf
+objectClass: fdPasswordRecoveryConf
+cn: config
+fdLanguage: en_US
+fdTheme: breezy
+fdTimezone: America/New_York
+fusionConfigMd5: f16017d68c13b25b574d31acdbfe0be4
+fdLdapSizeLimit: 200
+fdModificationDetectionAttribute: entryCSN
+fdLogging: TRUE
+fdSchemaCheck: TRUE
+fdEnableSnapshots: TRUE
+fdSnapshotBase: ou=snapshots,OPENLDAP_SUFFIX
+fdPasswordDefaultHash: ssha
+fdForcePasswordDefaultHash: FALSE
+fdHandleExpiredAccounts: FALSE
+fdLoginAttribute: uid
+fdForceSSL: FALSE
+fdWarnSSL: TRUE
+fdSessionLifeTime: 1800
+fdHttpAuthActivated: FALSE
+fdHttpHeaderAuthActivated: FALSE
+fdHttpHeaderAuthHeaderName: AUTH_USER
+fdSslKeyPath: /etc/ssl/private/fd.key
+fdSslCertPath: /etc/ssl/certs/fd.cert
+fdSslCaCertPath: /etc/ssl/certs/ca.cert
+fdCasActivated: FALSE
+fdCasServerCaCertPath: /etc/ssl/certs/ca.cert
+fdCasHost: localhost
+fdCasPort: 443
+fdCasContext: /cas
+fdAccountPrimaryAttribute: uid
+fdCnPattern: %givenName% %sn%
+fdStrictNamingRules: TRUE
+fdAclRoleRDN: ou=aclroles
+fdRestrictRoleMembers: FALSE
+fdSplitPostalAddress: FALSE
+fdDisplayErrors: FALSE
+fdLdapStats: FALSE
+fdDebugLevel: 0
+fdListSummary: TRUE
+fdAclTabOnObjects: FALSE
+fdDisplayHookOutput: FALSE
+fdUserRDN: ou=users
+fdMailAttribute: mail
+fdCyrusUseSlashes: FALSE
+fdCyrusDeleteMailbox: FALSE
+fdDashboardNumberOfDigit: 3
+fdDashboardPrefix: PC
+fdDashboardExpiredAccountsDays: 15
+fdOGroupRDN: ou=groups
+fdForceSaslPasswordAsk: FALSE
+fdPasswordRecoveryActivated: FALSE
+fdPasswordRecoveryEmail: to.be@chang.ed
+fdPasswordRecoveryValidity: 10
+fdPasswordRecoverySalt: SomethingSecretAndVeryLong
+fdPasswordRecoveryUseAlternate: FALSE
+fdPasswordRecoveryLoginAttribute: uid
+fdPasswordRecoveryMailSubject: [FusionDirectory] Password recovery link
+fdPasswordRecoveryMailBody:: SGVsbG8sCgpIZXJlIGlzIHlvdXIgaW5mb3JtYXRpb246IAogL
+ SBMb2dpbiA6ICVzCiAtIExpbmsgOiAlcwoKVGhpcyBsaW5rIGlzIG9ubHkgdmFsaWQgZm9yIDEwIG
+ 1pbnV0ZXMu
+fdPasswordRecoveryMail2Subject: [FusionDirectory] Password recovery successful
+fdPasswordRecoveryMail2Body:: SGVsbG8sCgpZb3VyIHBhc3N3b3JkIGhhcyBiZWVuIGNoYW5n
+ ZWQuCllvdXIgbG9naW4gaXMgc3RpbGwgJXMu
+
+dn: ou=snapshots,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: organizationalUnit
+ou: snapshots

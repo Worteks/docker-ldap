@@ -1,0 +1,7 @@
+dn: cn=mediawiki,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: mediawiki
+description: Service Account for MediaWiki
+sn: MediaWiki service account
+userPassword: MEDIAWIKI_SA_PASSWORD_HASH

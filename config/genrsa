@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use Crypt::OpenSSL::RSA;
+my $rsa  = Crypt::OpenSSL::RSA->generate_key(2048);
+my $keys = {
+	'private' => $rsa->get_private_key_string(),
+	'public'  => $rsa->get_public_key_x509_string(),
+    };
+
+$keys->{private} =~ s/\n/\\n/g;
+$keys->{public} =~ s/\n/\\n/g;
+print "RSA_PRIVATE='";
+print $keys->{private};
+print "'\nRSA_PUBLIC='";
+print $keys->{public};
+print "'";

@@ -1,0 +1,9 @@
+dn: olcOverlay=ppolicy,olcDatabase={2}hdb,cn=config
+objectClass: olcOverlayConfig
+objectClass: olcPPolicyConfig
+objectClass: top
+olcOverlay: ppolicy
+olcPPolicyDefault: cn=autoLockout,ou=policies,OPENLDAP_SUFFIX
+olcPPolicyHashCleartext: FALSE
+olcPPolicyUseLockout: TRUE
+olcPPolicyForwardUpdates: FALSE

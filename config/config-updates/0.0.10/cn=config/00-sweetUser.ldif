@@ -1,0 +1,11 @@
+dn: cn={4}sweetuser,cn=schema,cn=config
+changetype: modify
+add: olcAttributeTypes
+olcAttributeTypes: ( 1.3.6.1.4.1.39430.1.1.5 NAME 'usedMailQuota' DESC 'Used Mail Storage User Quota' EQUALITY caseExactMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 SINGLE-VALUE )
+olcAttributeTypes: ( 1.3.6.1.4.1.39430.1.1.6 NAME 'usedCloudQuota' DESC 'Used Cloud Storage User Quota' EQUALITY caseExactMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 SINGLE-VALUE )
+olcAttributeTypes: ( 1.3.6.1.4.1.39430.1.1.7 NAME 'profileId' DESC 'Wsweet Profile Id' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{40} SINGLE-VALUE )
+
+dn: cn={4}sweetuser,cn=schema,cn=config
+changetype: modify
+replace: olcObjectClasses
+olcObjectClasses: ( 1.3.6.1.4.1.39430.1.2.1 NAME 'sweetUser' DESC 'Sweet User Schema' AUXILIARY MAY ( mailQuota $ nextCloudQuota $ sshPublicKey $ mailAlternateAddress $ mailBackupAddress $ usedMailQuota $ usedCloudQuota $ profileId ) )

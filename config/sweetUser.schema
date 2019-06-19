@@ -1,0 +1,31 @@
+# sweetUser.schema -- Wsweet attributes
+## Collection of attributes likely to be referenced from
+## Wsweet components
+
+attributeType ( 1.3.6.1.4.1.7914.1.2.1.5
+	NAME ( 'mailQuota' 'mailQuotaSize' )
+	DESC 'Mail Storage User Quota'
+	EQUALITY caseExactMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44
+	SINGLE-VALUE )
+
+attributeType ( 1.3.6.1.4.1.39430.1.1.1
+	NAME ( 'cloudQuota' 'ownCloudQuota' 'nextCloudQuota' )
+	DESC 'Cloud Storage User Quota'
+	EQUALITY caseExactMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44
+	SINGLE-VALUE )
+
+attributeType ( 1.3.6.1.4.1.24552.500.1.1.1.13
+	NAME 'sshPublicKey'
+	DESC 'OpenSSH Public key'
+	EQUALITY octetStringMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+
+objectClass ( 1.3.6.1.4.1.39430.1.2.1
+	NAME 'sweetUser'
+	DESC 'Sweet User Schema'
+	SUP top AUXILIARY
+	MAY ( mailQuota $ nextCloudQuota $ sshPublicKey ) )

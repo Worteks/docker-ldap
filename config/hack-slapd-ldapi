@@ -1,0 +1,14 @@
+#!/bin/bash
+
+uidNumber=`id -u`
+find /etc/openldap/slapd.d -type f | while read line
+    do
+	grep -E 'uidNumber=[0-9]' "$line" >/dev/null || continue
+	sed -i "s|uidNumber=[0-9]*|uidNumber=$uidNumber|" "$line"
+	LDIF_CRC32=$(crc32 <(cat "$line" | tail -n +3))
+	LDIF_CRC32="# CRC32 $LDIF_CRC32"
+	SED_RPL="'0,/# CRC32 .*/s//$LDIF_CRC32/g'"
+	eval "sed -i $SED_RPL '$line'"
+    done
+
+exit $?

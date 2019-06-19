@@ -1,0 +1,57 @@
+dn: cn=mail-fd,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: mail-fd
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.4 NAME 'gosaMailServer' DES
+ C 'Specify users main mail server' EQUALITY caseIgnoreIA5Match SUBSTR caseI
+ gnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.5 NAME 'gosaMailQuota' DESC
+  'GOsa quota definitions' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5S
+ ubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.6 NAME 'gosaMailAlternateAd
+ dress' DESC 'Additional mail addresses where the user is reachable' EQUALIT
+ Y caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1
+ .1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.7 NAME 'gosaMailForwardingA
+ ddress' DESC 'Addresses where to forward mail to' EQUALITY caseIgnoreIA5Mat
+ ch SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.8 NAME 'gosaMailMaxSize' DE
+ SC 'Block mails bigger than this value' EQUALITY caseIgnoreIA5Match SUBSTR 
+ caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.9 NAME 'gosaSpamSortLevel' 
+ DESC 'Spamassassins hits' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5S
+ ubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.10 NAME 'gosaSpamMailbox' D
+ ESC 'Where to put spam' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5Sub
+ stringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.11 NAME 'gosaVacationMessag
+ e' DESC 'Text to display in case of vacation' EQUALITY caseIgnoreMatch SUBS
+ TR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.12 NAME 'gosaMailDeliveryMo
+ de' DESC 'What to do with mails' EQUALITY caseIgnoreIA5Match SUBSTR caseIgn
+ oreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.25 NAME 'gosaSharedFolderTa
+ rget' DESC 'Keeps the target of cyrus shared folders' EQUALITY caseIgnoreIA
+ 5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.
+ 1.26 )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.41 NAME 'gosaVacationStart
+ ' DESC 'Timestamp for enabling current vacation message' SYNTAX 1.3.6.1.4.1
+ .1466.115.121.1.15 SINGLE-VALUE )
+olcAttributeTypes: ( 1.3.6.1.4.1.10098.1.1.12.42 NAME 'gosaVacationStop'
+  DESC 'Timestamp for switching off current vacation message' SYNTAX 1.3.6.1
+ .4.1.1466.115.121.1.15 SINGLE-VALUE )
+olcAttributeTypes: ( 1.3.6.1.4.1.38414.10.13.1 NAME 'fdGroupMailLocalOnl
+ y' DESC 'FusionDirectory - Group mail only allowed to receive local mail' E
+ QUALITY booleanMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUE )
+olcObjectClasses: ( 1.3.6.1.4.1.38414.10.2.2 NAME 'fdImapServer' DESC 'Fu
+ sionDirectory basic imap service' SUP top AUXILIARY MUST cn )
+olcObjectClasses: ( 1.3.6.1.4.1.10098.1.2.1.19.5 NAME 'gosaMailAccount' D
+ ESC 'Basic user mail account' SUP top AUXILIARY MUST mail MAY ( gosaMailSer
+ ver $ gosaMailDeliveryMode $ gosaMailQuota $ gosaMailAlternateAddress $ gos
+ aMailForwardingAddress $ gosaMailMaxSize $ gosaSpamSortLevel $ gosaSpamMail
+ box $ gosaVacationMessage $ gosaVacationStart $ gosaVacationStop $ gosaShar
+ edFolderTarget ) )
+olcObjectClasses: ( 1.3.6.1.4.1.38414.10.2.5 NAME 'fdGroupMail' DESC 'Bas
+ ic user group mailing list' SUP top AUXILIARY MUST mail MAY ( gosaMailServe
+ r $ gosaMailAlternateAddress $ gosaMailForwardingAddress $ gosaMailMaxSize 
+ $ fdGroupMailLocalOnly ) )

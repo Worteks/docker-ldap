@@ -1,0 +1,86 @@
+dn: cn=demoone,ou=users,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: gosaMailAccount
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: sweetUser
+objectClass: top
+cn: demoone
+description: Wsweet Demo Admin Account
+givenName: WsweetAdmin
+homeDirectory: /home/demoone
+mail: demoone@LDAP_DOMAIN
+mail: r00t@LDAP_DOMAIN
+mailQuota: 4096000
+ownCloudQuota: 8192000
+pwdPolicySubentry: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
+sn: DemoAdmin
+telephoneNumber: +33606060606
+uid: demoone
+userPassword: OPENLDAP_DEMO_PASSWORD_HASH
+gidNumber: 10042
+uidNumber: 10000
+
+dn: cn=demotoo,ou=users,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: gosaMailAccount
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: sweetUser
+objectClass: top
+cn: demotoo
+description: Wsweet Demo User Account
+givenName: WsweetUser
+homeDirectory: /home/demotoo
+mail: demotoo@LDAP_DOMAIN
+mailQuota: 4096000
+ownCloudQuota: 8192000
+sn: DemoUser
+uid: demotoo
+telephoneNumber: +33606060606
+userPassword: OPENLDAP_DEMO_PASSWORD_HASH
+gidNumber: 10042
+uidNumber: 10001
+
+dn: cn=demotri,ou=users,OPENLDAP_SUFFIX
+objectClass: inetOrgPerson
+objectClass: gosaMailAccount
+objectClass: organizationalPerson
+objectClass: person
+objectClass: posixAccount
+objectClass: sweetUser
+objectClass: top
+cn: demotri
+description: Wsweet Demo User Account
+givenName: OtherUser
+homeDirectory: /home/demotri
+mail: demotri@LDAP_DOMAIN
+mailQuota: 4096000
+ownCloudQuota: 8192000
+pwdPolicySubentry: cn=permanentLock,ou=policies,OPENLDAP_SUFFIX
+sn: DemoUser
+telephoneNumber: +33606060606
+uid: demotri
+userPassword: OPENLDAP_DEMO_PASSWORD_HASH
+gidNumber: 10042
+uidNumber: 10002
+
+dn: cn=Admins,ou=groups,OPENLDAP_SUFFIX
+objectClass: groupOfNames
+objectClass: sweetGroup
+objectClass: top
+cn: Admins
+mail: admins@LDAP_DOMAIN
+member: cn=demoone,ou=users,OPENLDAP_SUFFIX
+
+dn: cn=All,ou=groups,OPENLDAP_SUFFIX
+objectClass: groupOfNames
+objectClass: sweetGroup
+objectClass: top
+cn: All
+mail: all@LDAP_DOMAIN
+member: cn=demoone,ou=users,OPENLDAP_SUFFIX
+member: cn=demotoo,ou=users,OPENLDAP_SUFFIX
+member: cn=demotri,ou=users,OPENLDAP_SUFFIX

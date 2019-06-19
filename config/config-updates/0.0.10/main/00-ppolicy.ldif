@@ -1,0 +1,23 @@
+dn: cn=autoLockout,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+add: objectClass
+objectClass: pwdPolicyChecker
+-
+add: pwdCheckModule
+pwdCheckModule: /usr/lib64/openldap/check_password.so
+
+dn: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+add: objectClass
+objectClass: pwdPolicyChecker
+-
+add: pwdCheckModule
+pwdCheckModule: /usr/lib64/openldap/check_password.so
+
+dn: cn=permanentLock,ou=policies,OPENLDAP_SUFFIX
+changetype: modify
+add: objectClass
+objectClass: pwdPolicyChecker
+-
+add: pwdCheckModule
+pwdCheckModule: /usr/lib64/openldap/check_password.so

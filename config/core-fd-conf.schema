@@ -1,0 +1,592 @@
+##
+## fusiondirectory-conf.schema - Needed by FusionDirectory for its configuration
+##
+
+#~ ldapTLS="true"
+
+# Attributes
+
+# Schema setup
+
+attributetype ( 1.3.6.1.4.1.38414.8.10.2 NAME 'fdSchemaCheck'
+  DESC 'FusionDirectory - Schema check'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+# Look n feel
+
+attributetype ( 1.3.6.1.4.1.38414.8.11.1 NAME 'fdLanguage'
+  DESC 'FusionDirectory - language'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.11.2 NAME 'fdTheme'
+  DESC 'FusionDirectory - theme'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.11.3 NAME 'fdTimezone'
+  DESC 'FusionDirectory - timezone'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+# People and group storage
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.1 NAME 'fdAccountPrimaryAttribute'
+  DESC 'FusionDirectory - attribute that should be used in user dn'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.3 NAME 'fdNextIdHook'
+  DESC 'FusionDirectory - A script to be called for finding the next free id for users or groups'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.6 NAME 'fdStrictNamingRules'
+  DESC 'FusionDirectory - Strict naming rules'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.7 NAME 'fdMinId'
+  DESC 'FusionDirectory - minimum user id'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.8 NAME 'fdUidNumberBase'
+  DESC 'FusionDirectory - uid number base'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.9 NAME 'fdGidNumberBase'
+  DESC 'FusionDirectory - gid number base'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.10 NAME 'fdUserRDN'
+  DESC 'FusionDirectory - User RDN'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.11 NAME 'fdGroupRDN'
+  DESC 'FusionDirectory - Group RDN'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.12 NAME 'fdIdAllocationMethod'
+  DESC 'FusionDirectory - id allocation method traditional/pool'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.13 NAME 'fdGidNumberPoolMin'
+  DESC 'FusionDirectory - pool gid number min'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.14 NAME 'fdUidNumberPoolMin'
+  DESC 'FusionDirectory - pool uid number min'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.15 NAME 'fdGidNumberPoolMax'
+  DESC 'FusionDirectory - pool gid number max'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.16 NAME 'fdUidNumberPoolMax'
+  DESC 'FusionDirectory - pool uid number max'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.17 NAME 'fdAclRoleRDN'
+  DESC 'FusionDirectory - ACL role RDN'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.18 NAME 'fdCnPattern'
+  DESC 'FusionDirectory - Common Name pattern'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.19 NAME 'fdRestrictRoleMembers'
+  DESC 'FusionDirectory - Restrict role members to users from the same LDAP branch'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.20 NAME 'fdSplitPostalAddress'
+  DESC 'FusionDirectory - Expose street, postOfficeBox and postalCode fields instead of postalAddress'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.12.21 NAME 'fdPostalAddressPattern'
+  DESC 'FusionDirectory - When using separate address fields, you can use a pattern to fill postalAddress field'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+# Password
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.1 NAME 'fdPasswordDefaultHash'
+  DESC 'FusionDirectory - Password default hash'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.2 NAME 'fdPasswordMinLength'
+  DESC 'FusionDirectory - Password min length'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.3 NAME 'fdPasswordMinDiffer'
+  DESC 'FusionDirectory - password min differ'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.5 NAME 'fdHandleExpiredAccounts'
+  DESC 'FusionDirectory - Handle expired accounts'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.6 NAME 'fdSaslRealm'
+  DESC 'FusionDirectory - SASL Realm'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.7 NAME 'fdSaslExop'
+  DESC 'FusionDirectory - SASL Exop'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.13.8 NAME 'fdForcePasswordDefaultHash'
+  DESC 'FusionDirectory - Force password default hash'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+# Core settings
+
+attributetype ( 1.3.6.1.4.1.38414.8.14.2 NAME 'fdListSummary'
+  DESC 'FusionDirectory - Show list summary'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.14.4 NAME 'fdModificationDetectionAttribute'
+  DESC 'FusionDirectory - Modification detection attribute'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.14.6 NAME 'fdLogging'
+  DESC 'FusionDirectory - Logging'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.14.7 NAME 'fdLdapSizeLimit'
+  DESC 'FusionDirectory - LDAP size limit'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.14.8 NAME 'fdWildcardForeignKeys'
+  DESC 'FusionDirectory - Weither or not to enable wildcard searches for foreign keys on dn'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+# Login and session
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.1 NAME 'fdLoginAttribute'
+  DESC 'FusionDirectory attribute that will be used for login'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.2 NAME 'fdForceSSL'
+  DESC 'FusionDirectory - Force SSL'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.3 NAME 'fdWarnSSL'
+  DESC 'FusionDirectory - Warn user when SSL is not used'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.4 NAME 'fdStoreFilterSettings'
+  DESC 'FusionDirectory - Store filter settings'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.5 NAME 'fdSessionLifeTime'
+  DESC 'FusionDirectory - Session life time in seconds'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.6 NAME 'fdHttpAuthActivated'
+  DESC 'FusionDirectory - HTTP Basic Auth activation'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.7 NAME 'fdHttpHeaderAuthActivated'
+  DESC 'FusionDirectory - HTTP Header Auth activation'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.15.8 NAME 'fdHttpHeaderAuthHeaderName'
+  DESC 'FusionDirectory - HTTP Header Auth - Header name'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE )
+
+# Debugging
+
+attributetype ( 1.3.6.1.4.1.38414.8.16.1 NAME 'fdDisplayErrors'
+  DESC 'FusionDirectory - Weither or not to display errors'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.16.2 NAME 'fdLdapMaxQueryTime'
+  DESC 'FusionDirectory - Maximum LDAP query time'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.16.3 NAME 'fdLdapStats'
+  DESC 'FusionDirectory - Weither or not to activate ldap stats'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.16.4 NAME 'fdDebugLevel'
+  DESC 'FusionDirectory - Debug level'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+# Snapshots
+
+attributetype ( 1.3.6.1.4.1.38414.8.17.1 NAME 'fdEnableSnapshots'
+  DESC 'FusionDirectory - Weither or not to enable snapshots'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.17.2 NAME 'fdSnapshotBase'
+  DESC 'FusionDirectory - Snaphost base'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+# Miscellaneous
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.2 NAME 'fdTabHook'
+  DESC 'FusionDirectory - tab hook'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.3 NAME 'fdShells'
+  DESC 'FusionDirectory - available shells'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.4 NAME 'fusionConfigMd5'
+  DESC 'FusionDirectory - md5sum of class.cache'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.5 NAME 'fdDisplayHookOutput'
+  DESC 'FusionDirectory - display hook execution output to the user'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.6 NAME 'fdAclTabOnObjects'
+  DESC 'FusionDirectory - Should acl tabs be shown on all objects'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.7 NAME 'fdDepartmentCategories'
+  DESC 'FusionDirectory - available categories for departments'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.8 NAME 'fdDefaultShell'
+  DESC 'FusionDirectory - default shell'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.18.9 NAME 'fdPluginsMenuBlacklist'
+  DESC 'FusionDirectory - Blacklist as groupdn|plugin or roledn|plugin'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+# Plugins
+
+attributetype ( 1.3.6.1.4.1.38414.8.19.1 NAME 'fdOGroupRDN'
+  DESC 'FusionDirectory - OGroup RDN'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.19.2 NAME 'fdForceSaslPasswordAsk'
+  DESC 'FusionDirectory - Force password ask for SASL users'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+# SSL
+
+attributetype ( 1.3.6.1.4.1.38414.8.20.1 NAME 'fdSslCaCertPath'
+  DESC 'FusionDirectory - CA certificate path'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.20.2 NAME 'fdSslKeyPath'
+  DESC 'FusionDirectory - SSL key path'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.20.3 NAME 'fdSslCertPath'
+  DESC 'FusionDirectory - SSL certificate path'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+# CAS
+
+attributetype ( 1.3.6.1.4.1.38414.8.21.1 NAME 'fdCasActivated'
+  DESC 'FusionDirectory - CAS activation'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.21.2 NAME 'fdCasServerCaCertPath'
+  DESC 'FusionDirectory - CAS server CA certificate path'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.21.3 NAME 'fdCasHost'
+  DESC 'FusionDirectory - CAS host'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.21.4 NAME 'fdCasPort'
+  DESC 'FusionDirectory - CAS port'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.38414.8.21.5 NAME 'fdCasContext'
+  DESC 'FusionDirectory - CAS context'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE)
+
+# merged from dashboard-fd.schema - Needed by Fusion Directory for dashboard options
+
+attributetype ( 1.3.6.1.4.1.38414.27.1.1 NAME 'fdDashboardPrefix'
+  DESC 'FusionDirectory - Dashboard computer name prefix'
+  EQUALITY caseExactIA5Match
+  SUBSTR caseExactIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26)
+
+attributetype ( 1.3.6.1.4.1.38414.27.1.2 NAME 'fdDashboardNumberOfDigit'
+  DESC 'FusionDirectory - Dashboard number of digits after prefixes in computer names'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.27.1.3 NAME 'fdDashboardExpiredAccountsDays'
+  DESC 'FusionDirectory - Dashboard number of days before expiration to be shown in board user tab'
+  EQUALITY integerMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE )
+
+# merged from recovery-fd.schema - Needed by Fusion Directory for password recovery options
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.1 NAME 'fdPasswordRecoveryActivated'
+  DESC 'Fusion Directory - Password recovery enabled/disabled'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.2 NAME 'fdPasswordRecoveryEmail'
+  DESC 'Fusion Directory - Password recovery sender email'
+  EQUALITY caseExactIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.3 NAME 'fdPasswordRecoveryMailSubject'
+  DESC 'Fusion Directory - Password recovery first email subject'
+  EQUALITY caseExactMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.4 NAME 'fdPasswordRecoveryMailBody'
+  DESC 'Fusion Directory - Password recovery first email body'
+  EQUALITY caseExactMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.5 NAME 'fdPasswordRecoveryMail2Subject'
+  DESC 'Fusion Directory - Password recovery second email subject'
+  EQUALITY caseExactMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.6 NAME 'fdPasswordRecoveryMail2Body'
+  DESC 'Fusion Directory - Password recovery second email body'
+  EQUALITY caseExactMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.7 NAME 'fdPasswordRecoveryValidity'
+  DESC 'Fusion Directory - Password recovery link validity in minutes'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.8 NAME 'fdPasswordRecoverySalt'
+  DESC 'Fusion Directory - Password recovery token salt'
+  EQUALITY caseExactIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.9 NAME 'fdPasswordRecoveryUseAlternate'
+  DESC 'Fusion Directory - Allow/disallow the use of alternate addresses for password recovery'
+  EQUALITY booleanMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.8.110.10 NAME 'fdPasswordRecoveryLoginAttribute'
+  DESC 'Fusion Directory - Password recovery login attribute (usually uid)'
+  EQUALITY caseExactIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+  SINGLE-VALUE )
+
+
+# Object Class
+objectclass ( 1.3.6.1.4.1.38414.8.2.1 NAME 'fusionDirectoryConf'
+  DESC 'FusionDirectory configuration'
+  SUP top STRUCTURAL
+  MUST ( cn )
+  MAY (
+    fusionConfigMd5 $
+    fdSchemaCheck $
+    fdLanguage $ fdTheme $ fdTimezone $
+    fdAccountPrimaryAttribute $ fdNextIdHook $
+    fdStrictNamingRules $ fdMinId $ fdUidNumberBase $
+    fdGidNumberBase $ fdUserRDN $ fdGroupRDN $ fdIdAllocationMethod $
+    fdGidNumberPoolMin $ fdUidNumberPoolMin $ fdGidNumberPoolMax $ fdUidNumberPoolMax $
+    fdAclRoleRDN $ fdCnPattern $ fdRestrictRoleMembers $ fdSplitPostalAddress $ fdPostalAddressPattern $
+    fdPasswordDefaultHash $ fdPasswordMinLength $ fdPasswordMinDiffer $
+    fdHandleExpiredAccounts $ fdSaslRealm $ fdSaslExop $
+    fdForcePasswordDefaultHash $
+    fdListSummary $
+    fdModificationDetectionAttribute $ fdLogging $ fdLdapSizeLimit $ fdWildcardForeignKeys $
+    fdLoginAttribute $ fdForceSSL $ fdWarnSSL $ fdStoreFilterSettings $ fdSessionLifeTime $
+    fdHttpAuthActivated $ fdHttpHeaderAuthActivated $ fdHttpHeaderAuthHeaderName $
+    fdDisplayErrors $ fdLdapMaxQueryTime $ fdLdapStats $ fdDebugLevel $
+    fdEnableSnapshots $ fdSnapshotBase $
+    fdTabHook $ fdShells $ fdDefaultShell $ fdDisplayHookOutput $
+    fdPluginsMenuBlacklist $
+    fdAclTabOnObjects $ fdDepartmentCategories $
+    fdSslCaCertPath $ fdSslKeyPath $ fdSslCertPath $
+    fdCasActivated $ fdCasServerCaCertPath $ fdCasHost $ fdCasPort $ fdCasContext
+  ) )
+
+objectclass ( 1.3.6.1.4.1.38414.8.2.2 NAME 'fusionDirectoryPluginsConf'
+  DESC 'FusionDirectory plugins configuration'
+  SUP top AUXILIARY
+  MUST ( cn )
+  MAY ( fdOGroupRDN $ fdForceSaslPasswordAsk ) )
+
+objectclass ( 1.3.6.1.4.1.38414.8.2.3 NAME 'fdPasswordRecoveryConf'
+  DESC 'FusionDirectory password recovery configuration'
+  SUP top AUXILIARY
+  MUST ( cn )
+  MAY (
+    fdPasswordRecoveryActivated     $ fdPasswordRecoveryEmail     $
+    fdPasswordRecoveryMailSubject   $ fdPasswordRecoveryMailBody  $
+    fdPasswordRecoveryMail2Subject  $ fdPasswordRecoveryMail2Body $
+    fdPasswordRecoveryValidity      $ fdPasswordRecoverySalt      $
+    fdPasswordRecoveryUseAlternate  $ fdPasswordRecoveryLoginAttribute
+  ) )
+
+# Dashboard Object Class
+objectclass ( 1.3.6.1.4.1.38414.27.2.1 NAME 'fdDashboardPluginConf'
+  DESC 'FusionDirectory dashboard plugin configuration'
+  SUP top AUXILIARY
+  MUST ( cn )
+  MAY ( fdDashboardPrefix $ fdDashboardNumberOfDigit $ fdDashboardExpiredAccountsDays) )

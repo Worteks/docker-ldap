@@ -1,0 +1,7 @@
+dn: cn=monitor,ou=services,OPENLDAP_SUFFIX
+objectClass: top
+objectClass: person
+cn: monitor
+description: Service Account for Monitoring OpenLDAP
+sn: Monitoring service account
+userPassword: MONITOR_SA_PASSWORD_HASH

@@ -1,0 +1,16 @@
+dn: OPENLDAP_SUFFIX
+changetype: modify
+add: description
+description: Organization
+-
+add: ou
+ou: Organization
+-
+add: objectClass
+objectClass: gosaDepartment
+-
+add: objectClass
+objectClass: gosaAcl
+-
+add: gosaAclEntry
+gosaAclEntry: 0:subtree:GOSA_ACL_ROLE:GOSA_ACL_USER
