@@ -26,11 +26,13 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
     && setcap 'cap_net_bind_service=+ep' /usr/sbin/slapd \
     && for dir in /etc/openldap /var/lib/ldap /var/run/openldap; \
 	do \
-	    mkdir -p $dir 2>/dev/null; \
-	    chmod a+rwx -R $dir; \
+	    mkdir -p $dir 2>/dev/null \
+	    && chown -R 1001:root "$dir" \
+	    && chmod -R g=u "$dir"; \
 	done \
     && cp -rp /etc/openldap /usr/local/etc/openldap/root-conf-orig \
     && rm -rf /var/cache/yum /usr/share/doc /usr/share/man \
     && unset HTTP_PROXY HTTPS_PROXY NO_PROXY DO_UPGRADE http_proxy https_proxy
 
 CMD [ "/usr/local/bin/run-openldap.sh" ]
+USER 1001

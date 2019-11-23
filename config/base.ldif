@@ -325,7 +325,7 @@ description: {ldapGroupRecursive}0
 description: {ldapPasswordResetAttribute}pwdReset
 description: {ldapPasswordResetAttributeValue}TRUE
 description: {ldapPort}389
-description: {ldapPpolicyControl}0
+description: {ldapPpolicyControl}1
 description: {ldapPwdEnc}utf-8
 description: {ldapSearchDeref}find
 description: {ldapServer}OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT

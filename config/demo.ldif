@@ -12,8 +12,8 @@ givenName: WsweetAdmin
 homeDirectory: /home/demoone
 mail: demoone@LDAP_DOMAIN
 mail: r00t@LDAP_DOMAIN
-mailQuota: 4096000
-ownCloudQuota: 8192000
+mailQuota: 10737418240
+ownCloudQuota: 10737418240
 pwdPolicySubentry: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
 sn: DemoAdmin
 telephoneNumber: +33606060606
@@ -35,8 +35,8 @@ description: Wsweet Demo User Account
 givenName: WsweetUser
 homeDirectory: /home/demotoo
 mail: demotoo@LDAP_DOMAIN
-mailQuota: 4096000
-ownCloudQuota: 8192000
+mailQuota: 10737418240
+ownCloudQuota: 10737418240
 sn: DemoUser
 uid: demotoo
 telephoneNumber: +33606060606
@@ -57,8 +57,8 @@ description: Wsweet Demo User Account
 givenName: OtherUser
 homeDirectory: /home/demotri
 mail: demotri@LDAP_DOMAIN
-mailQuota: 4096000
-ownCloudQuota: 8192000
+mailQuota: 10737418240
+ownCloudQuota: 10737418240
 pwdPolicySubentry: cn=permanentLock,ou=policies,OPENLDAP_SUFFIX
 sn: DemoUser
 telephoneNumber: +33606060606
