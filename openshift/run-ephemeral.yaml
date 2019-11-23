@@ -244,7 +244,7 @@ parameters:
   description: The ImageStreamTag we should pull images from
   displayName: Tag
   required: true
-  value: master
+  value: llng2
 - name: OPENLDAP_CPU_LIMIT
   description: Maximum amount of CPU an OpenLDAP container can use
   displayName: OpenLDAP CPU Limit

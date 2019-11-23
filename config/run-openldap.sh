@@ -101,7 +101,7 @@ start_with_ldapi()
     cpt=0
     while test "$cpt" -lt 30
     do
-	ldapsearch -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ 2>&1 | grep "Can.t contact LDAP server" >/dev/null || break
+	ldapsearch -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ 2>&1 | grep "Can.t contact LDAP server" >/dev/null || break
 	cpt=`expr $cpt + 1`
 	sleep 1
     done
@@ -293,20 +293,20 @@ if ! test -f /etc/openldap/CONFIGURED; then
 	    -e "s SSO_CLIENT_SA_PASSWORD_HASH $OPENLDAP_SSO_CLIENT_SA_PASSWORD_HASH g" \
 	    -e "s SYNCREPL_SA_PASSWORD_HASH $SYNCREPL_SA_PASSWORD_HASH g" \
 	    -e "s WSWEET_SA_PASSWORD_HASH $WSWEET_SA_PASSWORD_HASH g" usr/local/etc/openldap/base.ldif | \
-	    ldapadd -x -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ \
+	    ldapadd -x -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ \
 		-D "$OPENLDAP_ROOT_DN_PREFIX,$OPENLDAP_ROOT_DN_SUFFIX" -w "$OPENLDAP_ROOT_PASSWORD"
 	if test "$OPENLDAP_DEMO_PASSWORD"; then
 	    DEMO_SA_PASSWORD_HASH=$(slappasswd -s "$OPENLDAP_DEMO_PASSWORD")
 	    sed -e "s OPENLDAP_SUFFIX $OPENLDAP_ROOT_DN_SUFFIX g" -e "s|LDAP_DOMAIN|$OPENLDAP_ROOT_DOMAIN|g" \
 		-e "s OPENLDAP_DEMO_PASSWORD_HASH $DEMO_SA_PASSWORD_HASH g" usr/local/etc/openldap/demo.ldif | \
-		ldapadd -x -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ \
+		ldapadd -x -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ \
 		    -D "$OPENLDAP_ROOT_DN_PREFIX,$OPENLDAP_ROOT_DN_SUFFIX" -w "$OPENLDAP_ROOT_PASSWORD"
 	    unset DEMO_SA_PASSWORD_HASH
 	elif test "$OPENLDAP_GLOBAL_ADMIN_PASSWORD"; then
 	    GLOBAL_ADMIN_SA_PASSWORD_HASH=$(slappasswd -s "$OPENLDAP_GLOBAL_ADMIN_PASSWORD")
 	    sed -e "s OPENLDAP_SUFFIX $OPENLDAP_ROOT_DN_SUFFIX g" -e "s|LDAP_DOMAIN|$OPENLDAP_ROOT_DOMAIN|g" \
 		-e "s OPENLDAP_GLOBAL_ADMIN_PASSWORD_HASH $GLOBAL_ADMIN_SA_PASSWORD_HASH g" usr/local/etc/openldap/prod.ldif | \
-		ldapadd -x -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ \
+		ldapadd -x -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ \
 		    -D "$OPENLDAP_ROOT_DN_PREFIX,$OPENLDAP_ROOT_DN_SUFFIX" -w "$OPENLDAP_ROOT_PASSWORD"
 	    unset GLOBAL_ADMIN_SA_PASSWORD_HASH
 	fi
@@ -379,7 +379,7 @@ if test "$APPLY_VERSIONS"; then
 			    -e "s SSP_SA_PASSWORD_HASH $SSP_SA_PASSWORD_HASH g" \
 			    -e "s WEKAN_SA_PASSWORD_HASH $WEKAN_SA_PASSWORD_HASH g" \
 			    -e "s WHITEPAGES_SA_PASSWORD_HASH $WHITEPAGES_SA_PASSWORD_HASH g" $ldif | \
-			    ldapadd -x -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ \
+			    ldapadd -x -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ \
 				-D "$OPENLDAP_ROOT_DN_PREFIX,$OPENLDAP_ROOT_DN_SUFFIX" -w "$OPENLDAP_ROOT_PASSWORD"
 			if test $? -ne 0; then
 			    echo WARNING: failed importing $ldif
@@ -411,7 +411,7 @@ if test "$APPLY_VERSIONS"; then
 			    -e "s FUSION_SA_PASSWORD_HASH $FUSION_SA_PASSWORD_HASH g" \
 			    -e "s GOSA_ACL_USER $GOSA_ACL_USER g" \
 			    -e "s GOSA_ACL_ROLE $GOSA_ACL_ROLE g" $ldif | \
-			    ldapmodify -x -H ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/ \
+			    ldapmodify -x -H ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/ \
 				-D "$OPENLDAP_ROOT_DN_PREFIX,$OPENLDAP_ROOT_DN_SUFFIX" -w "$OPENLDAP_ROOT_PASSWORD"
 			if test $? -ne 0; then
 			    echo WARNING: failed importing $ldif

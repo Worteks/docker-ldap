@@ -12,7 +12,7 @@ if test -z "$OPENLDAP_ROOT_DN_SUFFIX"; then
     OPENLDAP_ROOT_DN_SUFFIX=`echo "dc=$OPENLDAP_ROOT_DOMAIN" | sed 's|\.|,dc=|g'`
 fi
 
-LADDR="ldap://localhost:$OPENLDAP_BIND_LDAP_PORT/"
+LADDR="ldap://127.0.0.1:$OPENLDAP_BIND_LDAP_PORT/"
 LBRU="cn=syncrepl,ou=services,$OPENLDAP_ROOT_DN_SUFFIX"
 LBRPW="$OPENLDAP_SYNCREPL_PASSWORD"
 LBWU="cn=wsweet,ou=services,$OPENLDAP_ROOT_DN_SUFFIX"

@@ -12,8 +12,8 @@ givenName: Admin
 homeDirectory: /home/admin0
 mail: admin0@LDAP_DOMAIN
 mail: r00t@LDAP_DOMAIN
-mailQuota: 10737418240
-ownCloudQuota: 10737418240
+mailQuota: 4096000
+ownCloudQuota: 8192000
 pwdPolicySubentry: cn=dontLockout,ou=policies,OPENLDAP_SUFFIX
 sn: Wsweet
 uid: admin0

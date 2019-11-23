@@ -257,7 +257,7 @@ description: {CAS_authnLevel}1
 description: {CAS_pgtFile}/tmp/pgt.txt
 description: {CAS_proxiedServices}{}
 description: {casStorage}Apache::Session::LDAP
-description: {casStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=cas,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {casStorageOptions}{"Index":"pgtIou _cas_id","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=cas,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD","ldapRaw":"(?i:^jpegPhoto|;binary)"}
 description: {cda}0
 description: {cfgAuthor}Wsweet
 description: {cfgAuthorIP}42.42.42.256
@@ -266,8 +266,10 @@ description: {cfgLog}Wsweet initial config
 description: {cfgNum}1
 description: {checkXSS}1
 description: {confirmFormMethod}post
-description: {cookieExpiration}+1h
+description: {cookieExpiration}36000
 description: {cookieName}ssoORG_SHORT
+description: {cspFormAction}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/ LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN:HTTP_PORT/
+description: {cspImg}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/ LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN:HTTP_PORT/
 description: {dbiAuthnLevel}2
 description: {dbiExportedVars}{}
 description: {demoExportedVars}{"cn":"cn","mail":"mail","uid":"uid","mailQuota":"mailQuota","nextCloudQuota":"nextCloudQuota"}
@@ -278,7 +280,7 @@ description: {facebookAuthnLevel}1
 description: {facebookExportedVars}{}
 description: {failedLoginNumber}5
 description: {globalStorage}Apache::Session::LDAP
-description: {globalStorageOptions}{"generateModule":"Lemonldap::NG::Common::Apache::Session::Generate::SHA256","Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=global,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {globalStorageOptions}{"generateModule":"Lemonldap::NG::Common::Apache::Session::Generate::SHA256","Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=global,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD","ldapRaw":"(?i:^jpegPhoto|;binary)"}
 description: {googleAuthnLevel}1
 description: {googleExportedVars}{}
 description: {grantSessionRules}{}
@@ -352,7 +354,7 @@ description: {mailOnPasswordChange}0
 description: {mailSessionKey}mail
 description: {mailSubject}[Wsweet] Your new password
 description: {mailTimeout}0
-description: {mailUrl}http://auth.OPENLDAP_DOMAIN/mail.pl
+description: {mailUrl}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/resetpwd
 description: {maintenance}0
 description: {managerDn}cn=lemonldap,ou=services,OPENLDAP_SUFFIX
 description: {managerPassword}LEMONLDAP_PASSWORD
@@ -390,7 +392,7 @@ description: {oidcServiceMetaDataRegistrationURI}register
 description: {oidcServiceMetaDataTokenURI}token
 description: {oidcServiceMetaDataUserInfoURI}userinfo
 description: {oidcStorage}Apache::Session::LDAP
-description: {oidcStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=oidc,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {oidcStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=oidc,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD","ldapRaw":"(?i:^jpegPhoto|;binary)"}
 description: {openIdAuthnLevel}1
 description: {openIdExportedVars}{}
 description: {openIdIDPList}0;
@@ -403,6 +405,7 @@ description: {passwordDB}LDAP
 description: {persistentStorage}Apache::Session::LDAP
 description: {persistentStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=persistent,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
 description: {port}LEMONLDAP_PORT
+description: {portal}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/
 description: {portalAntiFrame}1
 description: {portalCheckLogins}1
 description: {portalDisplayAppslist}1
@@ -415,7 +418,6 @@ description: {portalErrorOnExpiredSession}1
 description: {portalErrorOnMailNotFound}0
 description: {portalForceAuthn}0
 description: {portalForceAuthnInterval}5
-description: {portal}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/
 description: {portalOpenLinkInNewWindow}1
 description: {portalPingInterval}60000
 description: {portalRequireOldPassword}1
@@ -431,7 +433,7 @@ description: {registerConfirmSubject}[Wsweet] Account register confirmation
 description: {registerDB}LDAP
 description: {registerDoneSubject}[Wsweet] Your new account
 description: {registerTimeout}0
-description: {registerUrl}http://auth.OPENLDAP_DOMAIN/register.pl
+description: {registerUrl}LEMONLDAP_PROTO://auth.OPENLDAP_DOMAIN/register
 description: {reloadUrls}{"reload.OPENLDAP_DOMAIN":"http://reload.OPENLDAP_DOMAIN:HTTP_PORT/reload"}
 description: {remoteGlobalStorage}Lemonldap::NG::Common::Apache::Session::SOAP
 description: {remoteGlobalStorageOptions}{}
@@ -481,7 +483,7 @@ description: {samlSPSSODescriptorSingleLogoutServiceHTTPRedirect}urn:oasis:names
 description: {samlSPSSODescriptorSingleLogoutServiceSOAP}urn:oasis:names:tc:SAML:2.0:bindings:SOAP;#PORTAL#/saml/proxySingleLogoutSOAP;
 description: {samlSPSSODescriptorWantAssertionsSigned}1
 description: {samlStorage}Apache::Session::LDAP
-description: {samlStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=saml,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD"}
+description: {samlStorageOptions}{"Index":"ipAddr _whatToTrace user","ldapServer":"OPENLDAP_PROTO://OPENLDAP_HOST:OPENLDAP_PORT","ldapConfBase":"ou=saml,ou=sessions,OPENLDAP_SUFFIX","ldapBindDN":"cn=lemonsessions,ou=services,OPENLDAP_SUFFIX","ldapBindPassword":"LEMONSESSIONS_PASSWORD","ldapRaw":"(?i:^jpegPhoto|;binary)"}
 description: {samlUseQueryStringSpecific}0
 description: {securedCookie}0
 description: {sessionDataToRemember}{}
@@ -497,11 +499,11 @@ description: {SSLAuthnLevel}5
 description: {storePassword}0
 description: {successLoginNumber}5
 description: {syslog}
+description: {templateDir}/usr/share/lemonldap-ng/portal/templates
 description: {timeout}72000
 description: {timeoutActivity}0
 description: {timeoutActivityInterval}60
 description: {trustedDomains}*
-description: {trustedProxies}
 description: {twitterAuthnLevel}1
 description: {userControl}^[\w\.\-@]+$
 description: {userDB}LDAP

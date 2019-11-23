@@ -40,8 +40,8 @@ objects:
                   string(defaultValue: 'secr3t', description: 'OpenLDAP Demo Password', name: 'demoPassword')
                   string(defaultValue: '3', description: 'Max Retry', name: 'jobMaxRetry')
                   string(defaultValue: '1', description: 'Retry Count', name: 'jobRetryCount')
-                  string(defaultValue: 'master', description: 'OpenLDAP Docker Image - Source Git Branch', name: 'ldapBranch')
-                  string(defaultValue: 'master', description: 'OpenLDAP Docker Image - Source Git Hash', name: 'ldapHash')
+                  string(defaultValue: 'llng2', description: 'OpenLDAP Docker Image - Source Git Branch', name: 'ldapBranch')
+                  string(defaultValue: 'llng2', description: 'OpenLDAP Docker Image - Source Git Hash', name: 'ldapHash')
                   string(defaultValue: '${GIT_SOURCE_HOST}/Wsweet/docker-ldap.git', description: 'OpenLDAP Docker Image - Source Git Repository', name: 'ldapRepo')
                   string(defaultValue: '${OPENSHIFT_ROUTED_DOMAIN}', description: 'CI Router Root Domain', name: 'rootDomain')
               }
